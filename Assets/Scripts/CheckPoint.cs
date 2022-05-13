@@ -3,14 +3,11 @@ using UnityEngine;
 
 public class CheckPoint : MonoBehaviour
 {
-    private float position;
     private void OnTriggerEnter(Collider o)
     {
-        if (o.CompareTag("Player"))
-        {
-            PlayerPrefs.SetFloat("position", o.transform.position.z);
-            PlayerPrefs.Save();
-        }
+        if (!o.CompareTag("Player")) return;
+        PlayerPrefs.SetFloat( Move.position, o.transform.position.z);
+        PlayerPrefs.Save();
     }
 
     
