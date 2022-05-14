@@ -1,11 +1,10 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class AudioController : MonoBehaviour
 { 
     public enum MyTracks {One,Two }
-    public List<AudioClip> tracks = new List<AudioClip>();
+    public List<AudioClip> tracks ;
     private AudioSource _audioSource;
 
     private void Awake()

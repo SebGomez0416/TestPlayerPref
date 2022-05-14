@@ -5,7 +5,7 @@ public class Move : MonoBehaviour
     private Rigidbody rb;
     private Vector3 movement;
     [SerializeField] private float speed;
-    static public string position = "position";
+    public const string position = "position";
     
     private void Awake()
     {
