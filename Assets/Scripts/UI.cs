@@ -1,4 +1,4 @@
-using System;
+
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +9,7 @@ public class UI : MonoBehaviour
    [SerializeField] private AudioSource _audioController;
    public const string volume_one = "volume_one";
    public const string volume_two = "volume_two";
+   private int sliderActive;
 
    private void Awake()
    {
@@ -26,15 +27,17 @@ public class UI : MonoBehaviour
        SoundPref.OnSetTrack -=SaveVolume;
    }
 
-  public  void setVolume(int slider)
+  public  void setVolume()
   {
-      _audioController.volume = slider ==1 ? track_One.value : track_Two.value;
-      
-      // revisar despues set volumen
-  }
+      if (sliderActive+1 ==1)
+          _audioController.volume = track_One.value;
+      if (sliderActive+1 ==2)
+          _audioController.volume = track_Two.value;
+      }
 
   private void SaveVolume(AudioController.MyTracks t)
   {
+      sliderActive = (int)t;
       switch (t)
       {
           case AudioController.MyTracks.One:
